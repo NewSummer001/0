@@ -1,0 +1,50 @@
+</script><!DOCTYPE html>
+<html lang="en">
+<script src="https://telegram.org/js/telegram-web-app.js"></script><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game</title>
+    <link rel="stylesheet" href="styles.css">  
+    <h1>Clicker Game</h1>
+    <p>Clicks: <span id="clicks">0</span></p>
+    <p>Energy: <span id="energy">100</span></p>
+    <button id="clickBtn">Click Me!</button>
+    <button id="upgradeBtn">Upgrade (+1 Click)</button>
+
+    <script src="script.js"></script>
+<script>let clicks = 0;
+    let energy = 100;
+    
+    const clicksDisplay = document.getElementById('clicks');
+    const energyDisplay = document.getElementById('energy');
+    const clickBtn = document.getElementById('clickBtn');
+    const upgradeBtn = document.getElementById('upgradeBtn');
+    
+    clickBtn.addEventListener('click', () => {
+        if (energy > 0) {
+            clicks++;
+            energy--;
+            updateDisplays();
+        }
+    });
+    
+    upgradeBtn.addEventListener('click', () => {
+        if (energy >= 10) {
+            clicks += 5;
+            energy -= 10;
+            updateDisplays();
+        }
+    });
+    
+    function updateDisplays() {
+        clicksDisplay.textContent = clicks;
+        energyDisplay.textContent = energy;
+    }
+    
+    setInterval(() => {
+        if (energy < 100) {
+            energy++;
+            updateDisplays();
+        }
+    }, 3600000); // 1 hour = 3600000 ms
+    srcscript <="https://telegram.org/js/telegram-web-app.js"</script>
